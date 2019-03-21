@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-cn" lang="zh-cn">
 <head>
   <link href="//gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
@@ -8,13 +8,13 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>My New Hugo Site</title>
+  <title>DQ的博客</title>
 
   
-  <link type="text/css" rel="stylesheet" href="https://luwanjia.github.io/css/print.css" media="print">
-  <link type="text/css" rel="stylesheet" href="https://luwanjia.github.io/css/poole.css">
-  <link type="text/css" rel="stylesheet" href="https://luwanjia.github.io/css/syntax.css">
-  <link type="text/css" rel="stylesheet" href="https://luwanjia.github.io/css/hyde.css">
+  <link type="text/css" rel="stylesheet" href="http://deoqu.xyz/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="http://deoqu.xyz/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="http://deoqu.xyz/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="http://deoqu.xyz/css/hyde.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
 
 
@@ -23,7 +23,7 @@
   <link rel="shortcut icon" href="/favicon.png">
 
   
-  <link href="https://luwanjia.github.io/index.xml" rel="alternate" type="application/rss+xml" title="My New Hugo Site" />
+  <link href="http://deoqu.xyz/index.xml" rel="alternate" type="application/rss+xml" title="DQ的博客" />
 
   
 </head>
@@ -32,7 +32,7 @@
   <aside class="sidebar">
   <div class="container sidebar-sticky">
     <div class="sidebar-about">
-      <a href="https://luwanjia.github.io/"><h1>My New Hugo Site</h1></a>
+      <a href="http://deoqu.xyz/"><h1>DQ的博客</h1></a>
       <p class="lead">
       An elegant open source and mobile first theme for <a href="http://hugo.spf13.com">hugo</a> made by <a href="http://twitter.com/mdo">@mdo</a>. Originally made for Jekyll.
       </p>
@@ -40,7 +40,7 @@
 
     <nav>
       <ul class="sidebar-nav">
-        <li><a href="https://luwanjia.github.io/">Home</a> </li>
+        <li><a href="http://deoqu.xyz/">Home</a> </li>
         
       </ul>
     </nav>
@@ -53,10 +53,48 @@
     <div class="posts">
 <article class="post">
   <h1 class="post-title">
-    <a href="https://luwanjia.github.io/post/about/">About</a>
+    <a href="http://deoqu.xyz/post/linux%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/">Linux常用软件</a>
   </h1>
-  <time datetime="2019-03-21T13:58:15&#43;0800" class="post-date">Thu, Mar 21, 2019</time>
+  <time datetime="2019-03-21T14:29:59&#43;0800" class="post-date">Thu, Mar 21, 2019</time>
+  1 办公软件 1.1 WPS For Linux 下载地址：http://wps-community.org/downloads 下载最新版并安装字体（wps/ttf-wps-fonts/）
+1.2 邮箱客户端Thunderbird Thunderbird虽然比较庞大，但还是蛮好用的
+2 下载工具 wget、curl
+3 音视频软件 4 开发工具 4.1 KDevelop（C++开发IDE） 下载地址：https://www.kdevelop.org/download
+4.2 VSCode（微软出品） 下载地址：https://code.visualstudio.com/
+4.3 Qt5（C++开发IDE） 下载地址：http://download.qt.io/
+4.3 Typora（Markdown编辑器） 下载地址：https://www.typora.io/
+4.4 Remarkable（Markdown编辑器） 下载地址：&lt;http://remarkableapp.github.io/
+5 远程桌面 5.1 Teamviewer 下载地址：https://www.teamviewer.com/zhcn/download/linux/
+5.2 VNC 6 翻墙工具 6.1 Shadowsocks-qt5 下载地址：https://github.com/shadowsocks/shadowsocks-qt5
   
+</article><article class="post">
+  <h1 class="post-title">
+    <a href="http://deoqu.xyz/post/linux%E4%BA%91%E4%B8%BB%E6%9C%BA%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BAleanote%E4%BA%91%E7%AC%94%E8%AE%B0%E5%B9%B3%E5%8F%B0/">Linux云主机搭建个人Leanote云笔记平台</a>
+  </h1>
+  <time datetime="2019-03-21T14:21:28&#43;0800" class="post-date">Thu, Mar 21, 2019</time>
+  1 安装Golang语言环境 2 安装MongoDB数据库 2.1 下载 # wget -c http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-4.0.6.tgz  2.2 安装 # tar -xvf mongodb-linux-x86_64-4.0.6.tgz # mv mongodb-linux-x86_64-4.0.6 /opt/  在/etc/profile中追加环境变量: /opt/mongodb-linux-x86_64-4.0.6/bin
+2.3 定义数据库存储路径 自定义路径为:/root/mongodb_data
+#mkdir /root/mongodb_data  2.4 启动mongodb nohup mongod --dbpath /root/mongodb_data &amp;  3 安装Revel Web框架 # go get github.com/revel/cmd/revel  4 安装Leanote 4.1 下载 #wget -c https://sourceforge.net/projects/leanote-bin/files/2.6.1/leanote-linux-amd64-v2.6.1.bin.tar.gz  4.2 安装 自定义安装到/root目录下
+# tar -xvf leanote-linux-amd64-v2.6.1.bin.tar.gz # mv leanote /root/ # cd /root/  4.
+  
+  <div class="read-more-link">
+    <a href="/post/linux%E4%BA%91%E4%B8%BB%E6%9C%BA%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BAleanote%E4%BA%91%E7%AC%94%E8%AE%B0%E5%B9%B3%E5%8F%B0/">Read More…</a>
+  </div>
+  
+</article><article class="post">
+  <h1 class="post-title">
+    <a href="http://deoqu.xyz/post/linux%E4%B8%8Bmaven%E5%AE%89%E8%A3%85/">Linux下maven安装</a>
+  </h1>
+  <time datetime="2019-03-21T14:06:43&#43;0800" class="post-date">Thu, Mar 21, 2019</time>
+  1. 下载 下载地址http://maven.apache.org/download.cgi
+$wget -c http://mirrors.hust.edu.cn/apache/maven/maven-3/3.6.0/binaries/apache-maven-3.6.0-bin.tar.gz  2. 安装 解压到安装目录/opt
+#tar -xvf apache-maven-3.6.0-bin.tar.gz -C /opt  3. 配置环境变量 #vi /etc/profile export MAVEN_HOME=/opt/apache-maven-3.6.0 export PATH=$PATH:$MAVEN_HOME/bin  4. 配置仓库路径 配置依赖包存储路径：
+#vi /opt/apache-maven-3.6.0/conf/settings.xml &lt;localRepository&gt;/opt/repo-maven-3.6.0/&lt;/localRepository&gt;  配置本地maven私服：
+#vi /opt/apache-maven-3.6.0/conf/settings.xml &lt;!-- 指定maven私服 --&gt; &lt;profile&gt; &lt;id&gt;mynexus&lt;/id&gt; &lt;repositories&gt; &lt;repository&gt; &lt;id&gt;nexus_public&lt;/id&gt; &lt;url&gt;http://172.31.134.221:8081/nexus/content/groups/public/&lt;/url&gt; &lt;releases&gt; &lt;enabled&gt;true&lt;/enabled&gt; &lt;/releases&gt; &lt;snapshots&gt; &lt;enabled&gt;true&lt;/enabled&gt; &lt;/snapshots&gt; &lt;/repository&gt; &lt;/repositories&gt; &lt;pluginRepositories&gt; &lt;pluginRepository&gt; &lt;id&gt;nexus_public&lt;/id&gt; &lt;url&gt;http://172.31.134.221:8081/nexus/content/groups/public/&lt;/url&gt; &lt;releases&gt; &lt;enabled&gt;true&lt;/enabled&gt; &lt;/releases&gt; &lt;snapshots&gt; &lt;enabled&gt;true&lt;/enabled&gt; &lt;/snapshots&gt; &lt;/pluginRepository&gt; &lt;/pluginRepositories&gt; &lt;/profile&gt; &lt;activeProfiles&gt; &lt;activeProfile&gt;mynexus&lt;/activeProfile&gt; &lt;/activeProfiles&gt;  4.
+  
+  <div class="read-more-link">
+    <a href="/post/linux%E4%B8%8Bmaven%E5%AE%89%E8%A3%85/">Read More…</a>
+  </div>
   
 </article>
 </div>

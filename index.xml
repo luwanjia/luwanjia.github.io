@@ -1,23 +1,57 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>My New Hugo Site</title>
-    <link>https://luwanjia.github.io/</link>
-    <description>Recent content on My New Hugo Site</description>
+    <title>DQ的博客</title>
+    <link>http://deoqu.xyz/</link>
+    <description>Recent content on DQ的博客</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Thu, 21 Mar 2019 13:58:15 +0800</lastBuildDate>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 21 Mar 2019 14:29:59 +0800</lastBuildDate>
     
-	<atom:link href="https://luwanjia.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://deoqu.xyz/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>About</title>
-      <link>https://luwanjia.github.io/post/about/</link>
-      <pubDate>Thu, 21 Mar 2019 13:58:15 +0800</pubDate>
+      <title>Linux常用软件</title>
+      <link>http://deoqu.xyz/post/linux%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/</link>
+      <pubDate>Thu, 21 Mar 2019 14:29:59 +0800</pubDate>
       
-      <guid>https://luwanjia.github.io/post/about/</guid>
-      <description></description>
+      <guid>http://deoqu.xyz/post/linux%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/</guid>
+      <description>1 办公软件 1.1 WPS For Linux 下载地址：http://wps-community.org/downloads 下载最新版并安装字体（wps/ttf-wps-fonts/）
+1.2 邮箱客户端Thunderbird Thunderbird虽然比较庞大，但还是蛮好用的
+2 下载工具 wget、curl
+3 音视频软件 4 开发工具 4.1 KDevelop（C++开发IDE） 下载地址：https://www.kdevelop.org/download
+4.2 VSCode（微软出品） 下载地址：https://code.visualstudio.com/
+4.3 Qt5（C++开发IDE） 下载地址：http://download.qt.io/
+4.3 Typora（Markdown编辑器） 下载地址：https://www.typora.io/
+4.4 Remarkable（Markdown编辑器） 下载地址：&amp;lt;http://remarkableapp.github.io/
+5 远程桌面 5.1 Teamviewer 下载地址：https://www.teamviewer.com/zhcn/download/linux/
+5.2 VNC 6 翻墙工具 6.1 Shadowsocks-qt5 下载地址：https://github.com/shadowsocks/shadowsocks-qt5</description>
+    </item>
+    
+    <item>
+      <title>Linux云主机搭建个人Leanote云笔记平台</title>
+      <link>http://deoqu.xyz/post/linux%E4%BA%91%E4%B8%BB%E6%9C%BA%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BAleanote%E4%BA%91%E7%AC%94%E8%AE%B0%E5%B9%B3%E5%8F%B0/</link>
+      <pubDate>Thu, 21 Mar 2019 14:21:28 +0800</pubDate>
+      
+      <guid>http://deoqu.xyz/post/linux%E4%BA%91%E4%B8%BB%E6%9C%BA%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BAleanote%E4%BA%91%E7%AC%94%E8%AE%B0%E5%B9%B3%E5%8F%B0/</guid>
+      <description>1 安装Golang语言环境 2 安装MongoDB数据库 2.1 下载 # wget -c http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-4.0.6.tgz  2.2 安装 # tar -xvf mongodb-linux-x86_64-4.0.6.tgz # mv mongodb-linux-x86_64-4.0.6 /opt/  在/etc/profile中追加环境变量: /opt/mongodb-linux-x86_64-4.0.6/bin
+2.3 定义数据库存储路径 自定义路径为:/root/mongodb_data
+#mkdir /root/mongodb_data  2.4 启动mongodb nohup mongod --dbpath /root/mongodb_data &amp;amp;  3 安装Revel Web框架 # go get github.com/revel/cmd/revel  4 安装Leanote 4.1 下载 #wget -c https://sourceforge.net/projects/leanote-bin/files/2.6.1/leanote-linux-amd64-v2.6.1.bin.tar.gz  4.2 安装 自定义安装到/root目录下
+# tar -xvf leanote-linux-amd64-v2.6.1.bin.tar.gz # mv leanote /root/ # cd /root/  4.</description>
+    </item>
+    
+    <item>
+      <title>Linux下maven安装</title>
+      <link>http://deoqu.xyz/post/linux%E4%B8%8Bmaven%E5%AE%89%E8%A3%85/</link>
+      <pubDate>Thu, 21 Mar 2019 14:06:43 +0800</pubDate>
+      
+      <guid>http://deoqu.xyz/post/linux%E4%B8%8Bmaven%E5%AE%89%E8%A3%85/</guid>
+      <description>1. 下载 下载地址http://maven.apache.org/download.cgi
+$wget -c http://mirrors.hust.edu.cn/apache/maven/maven-3/3.6.0/binaries/apache-maven-3.6.0-bin.tar.gz  2. 安装 解压到安装目录/opt
+#tar -xvf apache-maven-3.6.0-bin.tar.gz -C /opt  3. 配置环境变量 #vi /etc/profile export MAVEN_HOME=/opt/apache-maven-3.6.0 export PATH=$PATH:$MAVEN_HOME/bin  4. 配置仓库路径 配置依赖包存储路径：
+#vi /opt/apache-maven-3.6.0/conf/settings.xml &amp;lt;localRepository&amp;gt;/opt/repo-maven-3.6.0/&amp;lt;/localRepository&amp;gt;  配置本地maven私服：
+#vi /opt/apache-maven-3.6.0/conf/settings.xml &amp;lt;!-- 指定maven私服 --&amp;gt; &amp;lt;profile&amp;gt; &amp;lt;id&amp;gt;mynexus&amp;lt;/id&amp;gt; &amp;lt;repositories&amp;gt; &amp;lt;repository&amp;gt; &amp;lt;id&amp;gt;nexus_public&amp;lt;/id&amp;gt; &amp;lt;url&amp;gt;http://172.31.134.221:8081/nexus/content/groups/public/&amp;lt;/url&amp;gt; &amp;lt;releases&amp;gt; &amp;lt;enabled&amp;gt;true&amp;lt;/enabled&amp;gt; &amp;lt;/releases&amp;gt; &amp;lt;snapshots&amp;gt; &amp;lt;enabled&amp;gt;true&amp;lt;/enabled&amp;gt; &amp;lt;/snapshots&amp;gt; &amp;lt;/repository&amp;gt; &amp;lt;/repositories&amp;gt; &amp;lt;pluginRepositories&amp;gt; &amp;lt;pluginRepository&amp;gt; &amp;lt;id&amp;gt;nexus_public&amp;lt;/id&amp;gt; &amp;lt;url&amp;gt;http://172.31.134.221:8081/nexus/content/groups/public/&amp;lt;/url&amp;gt; &amp;lt;releases&amp;gt; &amp;lt;enabled&amp;gt;true&amp;lt;/enabled&amp;gt; &amp;lt;/releases&amp;gt; &amp;lt;snapshots&amp;gt; &amp;lt;enabled&amp;gt;true&amp;lt;/enabled&amp;gt; &amp;lt;/snapshots&amp;gt; &amp;lt;/pluginRepository&amp;gt; &amp;lt;/pluginRepositories&amp;gt; &amp;lt;/profile&amp;gt; &amp;lt;activeProfiles&amp;gt; &amp;lt;activeProfile&amp;gt;mynexus&amp;lt;/activeProfile&amp;gt; &amp;lt;/activeProfiles&amp;gt;  4.</description>
     </item>
     
   </channel>

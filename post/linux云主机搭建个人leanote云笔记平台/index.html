@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-cn" lang="zh-cn">
+<head>
+  <link href="//gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.53" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Linux云主机搭建个人Leanote云笔记平台 &middot; DQ的博客</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="http://deoqu.xyz/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="http://deoqu.xyz/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="http://deoqu.xyz/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="http://deoqu.xyz/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="DQ的博客" />
+
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="http://deoqu.xyz/"><h1>DQ的博客</h1></a>
+      <p class="lead">
+      An elegant open source and mobile first theme for <a href="http://hugo.spf13.com">hugo</a> made by <a href="http://twitter.com/mdo">@mdo</a>. Originally made for Jekyll.
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="http://deoqu.xyz/">Home</a> </li>
+        
+      </ul>
+    </nav>
+
+    <p>&copy; 2019. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>Linux云主机搭建个人Leanote云笔记平台</h1>
+  <time datetime=2019-03-21T14:21:28&#43;0800 class="post-date">Thu, Mar 21, 2019</time>
+  
+
+<h2 id="1-安装golang语言环境">1 安装Golang语言环境</h2>
+
+<h2 id="2-安装mongodb数据库">2 安装MongoDB数据库</h2>
+
+<h3 id="2-1-下载">2.1 下载</h3>
+
+<pre><code># wget -c http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-4.0.6.tgz
+</code></pre>
+
+<h3 id="2-2-安装">2.2 安装</h3>
+
+<pre><code># tar -xvf mongodb-linux-x86_64-4.0.6.tgz
+# mv mongodb-linux-x86_64-4.0.6 /opt/
+</code></pre>
+
+<p>在/etc/profile中追加环境变量: /opt/mongodb-linux-x86_64-4.0.6/bin</p>
+
+<h3 id="2-3-定义数据库存储路径">2.3 定义数据库存储路径</h3>
+
+<p>自定义路径为:/root/mongodb_data</p>
+
+<pre><code>#mkdir /root/mongodb_data
+</code></pre>
+
+<h3 id="2-4-启动mongodb">2.4 启动mongodb</h3>
+
+<pre><code>nohup mongod --dbpath /root/mongodb_data &amp;
+</code></pre>
+
+<h2 id="3-安装revel-web框架">3 安装Revel Web框架</h2>
+
+<pre><code># go get github.com/revel/cmd/revel
+</code></pre>
+
+<h2 id="4-安装leanote">4 安装Leanote</h2>
+
+<h3 id="4-1-下载">4.1 下载</h3>
+
+<pre><code>#wget -c https://sourceforge.net/projects/leanote-bin/files/2.6.1/leanote-linux-amd64-v2.6.1.bin.tar.gz
+</code></pre>
+
+<h3 id="4-2-安装">4.2 安装</h3>
+
+<p>自定义安装到/root目录下</p>
+
+<pre><code># tar -xvf leanote-linux-amd64-v2.6.1.bin.tar.gz
+# mv leanote /root/
+# cd /root/
+</code></pre>
+
+<h3 id="4-2-导入数据库">4.2 导入数据库</h3>
+
+<pre><code># mongorestore -h localhost -d leanote --dir /root/leanote/mongodb_backup/leanote_install_data
+</code></pre>
+
+<h3 id="4-3-配置">4.3 配置</h3>
+
+<p>配置界面语言为中文:</p>
+
+<pre><code># vi /root/leanote/conf/app.conf
+</code></pre>
+
+<p>配置项为:i18n.default_language=zh-cn</p>
+
+<p>其它配置根据需要自行修改</p>
+
+<h3 id="4-4-启动leanote">4.4 启动leanote</h3>
+
+<pre><code># cd /root/leanote/bin
+# nohup sh run.sh &amp;
+</code></pre>
+
+<p>如果无法启动,请确认端口是否被占用, 如果占用则先停止进程</p>
+
+<pre><code># netstat -anp | grep run.sh
+# netstat -anp | grep leanote
+# kill -9 &lt;PID&gt;
+</code></pre>
+
+<p>在浏览器输入http://&lt;主机IP&gt;:9000/进行访问</p>
+
+<h3 id="4-5-删除demo用户">4.5 删除demo用户</h3>
+
+<pre><code>$ mongo
+&gt; use leanote
+&gt; db.users.remove({&quot;Username&quot;: &quot;demo&quot;})
+</code></pre>
+
+<h3 id="4-6-修改admin用户">4.6 修改admin用户</h3>
+
+<pre><code>$ mongo
+&gt; use leanote
+&gt; db.users.updateOne({&quot;Username&quot;: &quot;admin&quot;}, {$set: {&quot;Email&quot;: &quot;xxx@ooo.com&quot;}})
+&gt; db.users.updateOne({&quot;Username&quot;: &quot;admin&quot;}, {$set: {&quot;Username&quot;: &quot;whoisyourdaddy&quot;}})
+</code></pre>
+
+<p>同时将leanote/conf/app.conf文件中的adminUsername项配置为新的用户名</p>
+
+<h2 id="5-打开防火墙配置">5 打开防火墙配置</h2>
+
+<pre><code># firewall-cmd --zone=public --remove-port=9000/tcp --permanent
+</code></pre>
+
+<pre><code>
+</code></pre>
+
+</div>
+
+
+    </main>
+
+    
+  </body>
+</html>
